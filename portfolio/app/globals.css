@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ *
+ *  Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* next/font injects --font-* on :root via the <html> className */
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    /* Subtle warm vertical wash so the paper isn't flat */
+    background-image:
+      radial-gradient(120% 80% at 80% -10%, rgba(28, 66, 102, 0.06), transparent 60%),
+      linear-gradient(180deg, #f6f3ec 0%, #f1ede3 100%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(201, 123, 36, 0.28);
+    color: #0b1826;
+  }
+
+  /* Accessible focus ring */
+  :focus-visible {
+    outline: 2px solid #c97b24;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ *  Decorative utilities
+ * ------------------------------------------------------------------ */
+@layer components {
+  /* Fixed paper grain — very low opacity, pointer-transparent */
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(11, 24, 38, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 24, 38, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(147, 166, 187, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(147, 166, 187, 0.1) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Fade a decorative layer toward the bottom so it melts into the section */
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+  .mask-fade-y {
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 40%, transparent 100%);
+  }
+
+  /* The single accent rule, used as a recurring motif */
+  .rule-accent {
+    background-image: linear-gradient(90deg, #c97b24, #e8a24a);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ *  Scroll reveal (driven by the <Reveal /> client component)
+ * ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ------------------------------------------------------------------ *
+ *  Reduced motion — respect the user
+ * ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

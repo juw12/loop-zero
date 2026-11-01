@@ -1,0 +1,26 @@
+# Dependencies
+**/node_modules/
+
+# Build artifacts
+**/.next/
+**/out/
+**/build/
+**/dist/
+
+# Env files (NEVER commit secrets)
+**/.env
+**/.env.local
+**/.env*.local
+
+# Logs
+**/*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# The saas app already has its own .gitignore — keep both

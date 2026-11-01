@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink;
+    background-image: radial-gradient(
+        120% 80% at 80% -10%,
+        rgba(28, 66, 102, 0.06),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #f6f3ec 0%, #f1ede3 100%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: rgba(201, 123, 36, 0.28);
+    color: #0b1826;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
