@@ -1,71 +1,74 @@
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
-import { appendFile, readFile, writeFile } from "fs/promises";
+import crypto from "crypto";
+import { writeFile, appendFile, readFile } from "fs/promises";
 import path from "path";
 
-export async function POST(request: Request) {
-  const stripeKey = process.env.STRIPE_SECRET_KEY;
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+/**
+ * Lemon Squeezy Webhook
+ *
+ * Configure in https://app.lemonsqueezy.com/settings/webhooks
+ * URL: https://your-domain.com/api/webhook
+ * Events: order_created, subscription_created, subscription_updated, subscription_cancelled
+ *
+ * LEMONSQUEEZY_WEBHOOK_SECRET is used to verify the signature.
+ */
 
-  if (!stripeKey || !webhookSecret) {
+export async function POST(request: Request) {
+  const secret = process.env.LEMONSQUEEZY_WEBHOOK_SECRET;
+  if (!secret) {
     return NextResponse.json(
-      { error: "Stripe webhook not configured." },
+      { error: "Lemon Squeezy webhook not configured." },
       { status: 503 }
     );
   }
 
-  const stripe = new Stripe(stripeKey, { apiVersion: "2025-02-24.acacia" });
-  const sig = request.headers.get("stripe-signature");
-  const body = await request.text();
+  const rawBody = await request.text();
+  const signature = request.headers.get("x-signature");
 
-  if (!sig) {
+  if (!signature) {
     return NextResponse.json(
-      { error: "Missing stripe-signature header." },
+      { error: "Missing x-signature header." },
       { status: 400 }
     );
   }
 
-  let event: Stripe.Event;
-  try {
-    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : "Invalid signature";
-    return NextResponse.json({ error: msg }, { status: 400 });
+  // Lemon Squeezy signs with HMAC-SHA256 of the raw body
+  const hmac = crypto.createHmac("sha256", secret);
+  hmac.update(rawBody);
+  const expectedSignature = hmac.digest("hex");
+
+  if (signature !== expectedSignature) {
+    return NextResponse.json(
+      { error: "Invalid signature." },
+      { status: 401 }
+    );
   }
 
-  switch (event.type) {
-    case "checkout.session.completed": {
-      const session = event.data.object as Stripe.Checkout.Session;
-      const customerEmail = session.customer_details?.email || session.customer_email;
-      const subscriptionId =
-        typeof session.subscription === "string" ? session.subscription : null;
-      const amount = session.amount_total;
-      const currency = session.currency;
+  let event: any;
+  try {
+    event = JSON.parse(rawBody);
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON." }, { status: 400 });
+  }
 
-      const log = {
-        type: "checkout.session.completed",
-        timestamp: new Date().toISOString(),
-        email: customerEmail,
-        subscriptionId,
-        amount: amount ? amount / 100 : null,
-        currency,
-        sessionId: session.id,
-      };
+  const eventName = event?.meta?.event_name;
+  const customerEmail = event?.data?.attributes?.user_email || event?.data?.attributes?.customer_email;
+  const subscriptionId = event?.data?.id;
+  const tier = event?.meta?.custom_data?.tier;
+  const cadence = event?.meta?.custom_data?.cadence;
 
-      await appendSubscriber(log);
-      console.log("[webhook] checkout completed:", customerEmail);
-      break;
-    }
+  if (eventName?.startsWith("subscription_") || eventName === "order_created") {
+    const log = {
+      event: eventName,
+      timestamp: new Date().toISOString(),
+      email: customerEmail,
+      subscriptionId,
+      tier,
+      cadence,
+    };
 
-    case "customer.subscription.deleted": {
-      const sub = event.data.object as Stripe.Subscription;
-      console.log("[webhook] subscription cancelled:", sub.id);
-      // TODO: revoke access in your app (e.g., delete license file entry)
-      break;
-    }
-
-    default:
-      console.log("[webhook] unhandled event:", event.type);
+    await appendSubscriber(log);
+    console.log(`[webhook] ${eventName}: ${customerEmail} (${tier}/${cadence})`);
   }
 
   return NextResponse.json({ received: true });

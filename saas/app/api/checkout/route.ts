@@ -1,93 +1,150 @@
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
 import { writeFile, appendFile } from "fs/promises";
 import path from "path";
 
-const TIER_TO_PRICE: Record<string, { monthly: string | undefined; annual: string | undefined }> = {
+/**
+ * Lemon Squeezy Checkout
+ *
+ * Required env vars:
+ *   LEMONSQUEEZY_API_KEY       — from https://app.lemonsqueezy.com/settings/api
+ *   LEMONSQUEEZY_STORE_ID      — from your store URL: lemonsqueezy.com/store/{STORE_ID}
+ *   LEMONSQUEEZY_VARIANT_PRO_MONTHLY  — variant ID for Professional monthly
+ *   LEMONSQUEEZY_VARIANT_PRO_ANNUAL   — variant ID for Professional annual
+ *   LEMONSQUEEZY_VARIANT_TEAM_MONTHLY — variant ID for Team monthly
+ *   LEMONSQUEEZY_VARIANT_TEAM_ANNUAL  — variant ID for Team annual
+ */
+
+const TIER_TO_VARIANT: Record<string, Record<string, string | undefined>> = {
   professional: {
-    monthly: process.env.STRIPE_PRICE_PROFESSIONAL_MONTHLY,
-    annual: process.env.STRIPE_PRICE_PROFESSIONAL_ANNUAL,
+    monthly: process.env.LEMONSQUEEZY_VARIANT_PRO_MONTHLY,
+    annual: process.env.LEMONSQUEEZY_VARIANT_PRO_ANNUAL,
   },
   team: {
-    monthly: process.env.STRIPE_PRICE_TEAM_MONTHLY,
-    annual: process.env.STRIPE_PRICE_TEAM_ANNUAL,
+    monthly: process.env.LEMONSQUEEZY_VARIANT_TEAM_MONTHLY,
+    annual: process.env.LEMONSQUEEZY_VARIANT_TEAM_ANNUAL,
   },
 };
 
 export async function POST(request: Request) {
-  const stripeKey = process.env.STRIPE_SECRET_KEY;
+  const apiKey = process.env.LEMONSQUEEZY_API_KEY;
+  const storeId = process.env.LEMONSQUEEZY_STORE_ID;
 
-  if (!stripeKey || stripeKey.includes("your_key_here")) {
+  if (!apiKey || apiKey.includes("your_key_here")) {
     return NextResponse.json(
       {
         error:
-          "Stripe is not configured. Set STRIPE_SECRET_KEY in .env.local to enable paid tiers. See README.md for setup steps.",
+          "Lemon Squeezy is not configured. Set LEMONSQUEEZY_API_KEY in .env.local to enable paid tiers. See saas/README.md.",
       },
       { status: 503 }
     );
   }
 
-  // Accept both form-encoded (the <form action="/api/checkout">) and JSON
+  if (!storeId || storeId.includes("your_store")) {
+    return NextResponse.json(
+      {
+        error:
+          "LEMONSQUEEZY_STORE_ID is not set. Get it from your Lemon Squeezy store URL.",
+      },
+      { status: 503 }
+    );
+  }
+
   let tier = "";
-  let cadence = "monthly";
+  let cadence: "monthly" | "annual" = "monthly";
   const contentType = request.headers.get("content-type") || "";
   if (contentType.includes("application/x-www-form-urlencoded")) {
     const form = await request.formData();
     tier = String(form.get("tier") || "");
-    cadence = String(form.get("cadence") || "monthly");
+    cadence = (String(form.get("cadence") || "monthly") as "monthly" | "annual");
   } else if (contentType.includes("application/json")) {
     const body = await request.json();
     tier = body.tier;
     cadence = body.cadence || "monthly";
   }
 
-  const priceConfig = TIER_TO_PRICE[tier];
-  if (!priceConfig) {
-    return NextResponse.json(
-      { error: `Unknown tier: ${tier}. Expected 'professional' or 'team'.` },
-      { status: 400 }
-    );
-  }
-
-  const priceId = priceConfig[cadence as "monthly" | "annual"];
-  if (!priceId || priceId.includes("price_xxx")) {
+  const variantId = TIER_TO_VARIANT[tier]?.[cadence];
+  if (!variantId || variantId.includes("your_variant")) {
     return NextResponse.json(
       {
-        error: `Stripe price ID for ${tier}/${cadence} is not configured. Set STRIPE_PRICE_${tier.toUpperCase()}_${cadence.toUpperCase()} in .env.local after creating the product in the Stripe dashboard.`,
+        error: `Variant for ${tier}/${cadence} is not configured. Set LEMONSQUEEZY_VARIANT_${tier.toUpperCase()}_${cadence.toUpperCase()} in .env.local after creating the product.`,
       },
       { status: 503 }
     );
   }
 
-  const stripe = new Stripe(stripeKey, { apiVersion: "2025-02-24.acacia" });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
   try {
-    const session = await stripe.checkout.sessions.create({
-      mode: "subscription",
-      line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${siteUrl}/?checkout=success`,
-      cancel_url: `${siteUrl}/?checkout=cancelled`,
-      allow_promotion_codes: true,
-      billing_address_collection: "auto",
+    const res = await fetch("https://api.lemonsqueezy.com/v1/checkouts", {
+      method: "POST",
+      headers: {
+        Accept: "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        data: {
+          type: "checkouts",
+          attributes: {
+            checkout_options: {
+              embed: false,
+              media: false,
+              logo: true,
+              desc: true,
+              discount: true,
+              dark: true,
+              subscription_preview: true,
+              button_color: "#C97B24",
+            },
+            checkout_data: {
+              email: "",
+              custom: {
+                tier,
+                cadence,
+              },
+            },
+            product_options: {
+              redirect_url: `${siteUrl}/?checkout=success`,
+              receipt_button_text: "Go to your account",
+              receipt_thank_you_note: "Welcome to Loop Zero! Check your email for setup instructions.",
+            },
+          },
+          relationships: {
+            store: { data: { type: "stores", id: storeId } },
+            variant: { data: { type: "variants", id: variantId } },
+          },
+        },
+      }),
     });
 
-    if (!session.url) {
+    if (!res.ok) {
+      const body = await res.text();
+      console.error("[lemon-squeezy] checkout error:", res.status, body);
       return NextResponse.json(
-        { error: "Stripe did not return a checkout URL." },
+        { error: `Lemon Squeezy API error (${res.status})` },
         { status: 500 }
       );
     }
 
-    return NextResponse.redirect(session.url, 303);
+    const data = await res.json();
+    const url = data.data?.attributes?.url;
+
+    if (!url) {
+      return NextResponse.json(
+        { error: "Lemon Squeezy did not return a checkout URL." },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.redirect(url, 303);
   } catch (err) {
     const message =
-      err instanceof Error ? err.message : "Stripe checkout failed.";
+      err instanceof Error ? err.message : "Checkout creation failed.";
     console.error("[checkout] error:", err);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ status: "ok", endpoint: "checkout" });
+  return NextResponse.json({ status: "ok", endpoint: "checkout", provider: "lemon-squeezy" });
 }
