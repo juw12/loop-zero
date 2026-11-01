@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="relative max-w-page mx-auto px-6 lg:px-10">
         <div className="max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-widest text-accent mb-6">
-            AI Automation · Bangkok / ASEAN
+            AI Automation · worldwide
           </p>
 
           <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight text-ink mb-8">

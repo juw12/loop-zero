@@ -5,10 +5,10 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="font-display text-xl font-medium mb-1">
-              {"Loop Zero"}
+              {"Handoff"}
             </p>
             <p className="font-mono text-xs uppercase tracking-widest text-paper/50">
-              AI Automation · Bangkok / ASEAN
+              AI Automation · worldwide
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 text-sm">
@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
         </div>
         <p className="mt-8 font-mono text-[11px] uppercase tracking-widest text-paper/40">
-          Built in Bangkok · No enterprise theater · Replies within a business day
+          Built worldwide · No enterprise theater · Replies within a business day
         </p>
       </div>
     </footer>

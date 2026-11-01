@@ -19,7 +19,7 @@ const FEATURES = [
   {
     title: "Lead Qualifier",
     blurb:
-      "Coming soon — auto-score inquiries from LINE and Facebook against your ideal buyer profile. Reply to the right ones first.",
+      "Coming soon — auto-score inquiries from your inbox against your ideal buyer profile. Reply to the right ones first.",
     icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
     accent: "bg-accent-bright/15 text-accent",
   },
@@ -28,7 +28,7 @@ const FEATURES = [
 const TIERS = [
   {
     name: "Free",
-    price: "฿0",
+    price: "$0",
     cadence: "forever",
     blurb: "Try every tool. Limited monthly usage.",
     cta: { label: "Start free", href: "/demo/listing-writer", style: "outline" },
@@ -43,7 +43,7 @@ const TIERS = [
   },
   {
     name: "Professional",
-    price: "฿990",
+    price: "$29",
     cadence: "/ month",
     blurb: "For active agents shipping 5+ listings a month.",
     cta: { label: "Upgrade", tier: "professional", style: "primary" },
@@ -51,15 +51,15 @@ const TIERS = [
       "Unlimited listing generations",
       "Unlimited review replies",
       "3 variants per generation",
-      "Thai + English output",
-      "Email support",
-      "Export to MLS / DDProperty format",
+      "Multi-language output (English, more coming)",
+      "Priority email support",
+      "Export to MLS / major listing platforms",
     ],
     featured: true,
   },
   {
     name: "Team",
-    price: "฿2,490",
+    price: "$99",
     cadence: "/ month",
     blurb: "For agencies with 3+ agents.",
     cta: { label: "Upgrade", tier: "team", style: "outline" },
@@ -67,7 +67,7 @@ const TIERS = [
       "Everything in Professional",
       "Up to 5 seats",
       "Shared brand voice settings",
-      "Priority WhatsApp support",
+      "Priority support with 4-hour response",
       "Custom prompt tuning",
       "Quarterly review session",
     ],
@@ -82,12 +82,12 @@ export default function Home() {
       <header className="sticky top-0 z-50 backdrop-blur-md bg-paper/80 border-b border-hairline-light">
         <div className="max-w-page mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
           <Link href="/" className="font-display text-xl font-medium text-ink tracking-tight">
-            Loop Zero
+            Handoff
           </Link>
           <nav className="hidden sm:flex items-center gap-8 text-sm text-mist-light">
             <a href="#features" className="hover:text-ink transition-colors">Features</a>
             <a href="#pricing" className="hover:text-ink transition-colors">Pricing</a>
-            <a href="mailto:hello@loopzero.co" className="hover:text-ink transition-colors">Contact</a>
+            <a href="mailto:hello@handoff.ai" className="hover:text-ink transition-colors">Contact</a>
           </nav>
           <a
             href="#waitlist"
@@ -103,13 +103,13 @@ export default function Home() {
         <div className="relative max-w-page mx-auto px-6 lg:px-10">
           <div className="max-w-3xl">
             <p className="font-mono text-xs uppercase tracking-widest text-accent mb-6">
-              AI for Bangkok real estate agents
+              AI for independent real estate agents worldwide
             </p>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight text-ink mb-8">
               Stop typing. Start closing.
             </h1>
             <p className="text-lg sm:text-xl text-mist-light leading-relaxed max-w-2xl mb-10">
-              Three AI tools built for the daily work of Bangkok real estate
+              Three AI tools built for the daily work of real estate
               agents. Listings that sell. Replies that earn back customers.
               Qualified leads you actually want to call back.
             </p>
@@ -197,7 +197,7 @@ export default function Home() {
           </div>
 
           <p className="mt-8 text-center text-sm text-mist-light">
-            All plans in Thai baht · Annual billing saves 2 months · Cancel anytime · 7-day refund
+            All plans in USD · Annual billing saves 2 months · Cancel anytime · 7-day refund
           </p>
         </div>
       </section>
@@ -213,7 +213,7 @@ export default function Home() {
               Lifetime pricing for the first 50 agents.
             </h2>
             <p className="text-lg text-mist-light leading-relaxed mb-10">
-              We&apos;re onboarding Bangkok agents one team at a time. Drop your
+              We&apos;re onboarding agents one team at a time. Drop your
               email and we&apos;ll send you a setup call link within a week.
             </p>
             <WaitlistForm />
@@ -226,19 +226,19 @@ export default function Home() {
         <div className="max-w-page mx-auto px-6 lg:px-10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
-              <p className="font-display text-xl font-medium mb-1">Loop Zero</p>
+              <p className="font-display text-xl font-medium mb-1">Handoff</p>
               <p className="font-mono text-xs uppercase tracking-widest text-paper/50">
-                AI tools for Bangkok real estate agents
+                AI tools worldwide real estate agents
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 text-sm">
               <a href="#features" className="text-paper/80 hover:text-paper">Features</a>
               <a href="#pricing" className="text-paper/80 hover:text-paper">Pricing</a>
-              <a href="mailto:hello@loopzero.co" className="text-paper/80 hover:text-paper">Contact</a>
+              <a href="mailto:hello@handoff.ai" className="text-paper/80 hover:text-paper">Contact</a>
             </div>
           </div>
           <p className="mt-8 font-mono text-[11px] uppercase tracking-widest text-paper/40">
-            Built in Bangkok · Powered by your own API key · No data stored on our servers
+            Built worldwide · Powered by your own API key · No data stored on our servers
           </p>
         </div>
       </footer>

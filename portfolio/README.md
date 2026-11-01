@@ -1,4 +1,4 @@
-# Loop Zero — AI Automation Agency Portfolio
+# Handoff — AI Automation Agency Portfolio
 
 A single-page, production-ready portfolio for an AI automation agency.
 Built with **Next.js 14 (App Router) + TypeScript + Tailwind CSS**. No
@@ -6,7 +6,7 @@ external images, no database, no auth — it ships as a static-first site with
 a single serverless function for the contact form.
 
 > Everything on this page is placeholder copy written inline. Swap
-> `Loop Zero` and the marketing text with your own before going live.
+> `Handoff` and the marketing text with your own before going live.
 
 ---
 
@@ -68,7 +68,7 @@ example add an email service call in `app/api/contact/route.ts`.
 
 | Where | What to change |
 | --- | --- |
-| `components/Nav.tsx`, `components/Hero.tsx`, `components/Footer.tsx` | `Loop Zero` → your brand |
+| `components/Nav.tsx`, `components/Hero.tsx`, `components/Footer.tsx` | `Handoff` → your brand |
 | `components/Hero.tsx` | tagline + CTA copy |
 | `components/Hero.tsx`, `components/Contact.tsx` | `https://calendly.com/your-handle/15min` → your real Calendly link |
 | `components/Demos.tsx` | `/demo/review-responder`, `/demo/listing-writer` → real demo routes |

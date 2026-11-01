@@ -1,6 +1,6 @@
 # Agency Starter Kit — Week 1
 
-Everything you need to launch the AI automation agency this week. Built for Bangkok / ASEAN SMBs.
+Everything you need to launch the AI automation agency this week. Built for worldwide SMBs.
 
 ```
 agency-starter/
@@ -63,7 +63,7 @@ All four apps run side-by-side. The portfolio is your marketing site; the demos 
 
 Read `docs/brand.md`. Three options. Pick one. The portfolio site uses `{BRAND_NAME}` as a placeholder — find-and-replace once you've chosen.
 
-Recommendation for fastest launch: **Loop Zero** — short, English-friendly, descriptive.
+Recommendation for fastest launch: **Handoff** — short, English-friendly, descriptive.
 
 Once picked, replace `{BRAND_NAME}` everywhere:
 - `portfolio/components/Nav.tsx`
@@ -133,7 +133,7 @@ Live Next.js app. Fill in property details, get a listing. Uses your `LLM_API_KE
 Single-page Next.js landing page. Edit `content.ts` to swap headline, subhead, features, CTA. Edit `app/globals.css` to swap brand color. Deploy, share link in 2–3 niche-specific groups, read `leads.json` to gauge interest.
 
 ### research/niche-shortlist.md
-5 candidate niches scored on Pain × WTP × Reach. Top pick is **Bangkok independent real estate agents**.
+5 candidate niches scored on Pain × WTP × Reach. Top pick is **independent real estate agents**.
 
 ### research/validation-playbook.md
 14-day playbook for testing which niche has real demand. Uses the fake-door template. Costs 5 hours and ฿0 to run.

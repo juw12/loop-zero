@@ -102,7 +102,7 @@ export default function Contact() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows={4}
-              placeholder="e.g. We copy every LINE inquiry into a Google Sheet by hand, twice a day."
+              placeholder="e.g. We copy every inquiry into a Google Sheet by hand, twice a day."
               className="w-full rounded-lg border border-hairline-light bg-paper/40 px-4 py-3 placeholder:text-mist-light/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors resize-none"
             />
           </div>

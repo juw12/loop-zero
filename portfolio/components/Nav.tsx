@@ -8,7 +8,7 @@ export default function Nav() {
           href="/"
           className="font-display text-xl font-medium text-ink tracking-tight"
         >
-          {"Loop Zero"}
+          {"Handoff"}
         </Link>
         <nav className="hidden sm:flex items-center gap-8 text-sm text-mist-light">
           <a href="#services" className="hover:text-ink transition-colors">

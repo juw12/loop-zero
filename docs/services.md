@@ -53,7 +53,7 @@ A growing business (5–30 people) where work falls through the cracks between p
 
 1. *How do you decide which 3 automations to build?* During discovery we map your current flow, find the 3 highest-friction handoffs, and present options. You approve before we build.
 
-2. *What tools do you work with?* Anything with an API or webhook. In practice: HubSpot, Zoho, Google Sheets, LINE OA, WhatsApp Business, Notion, Calendly, Stripe, and most local Thai tools.
+2. *What tools do you work with?* Anything with an API or webhook. In practice: HubSpot, Zoho, Google Sheets, messaging, WhatsApp Business, Notion, Calendly, Stripe, and most local Thai tools.
 
 3. *What if my process changes in 3 months?* The 30-day re-tune covers minor adjustments. After that, a Retainer keeps things moving without starting a new project each time.
 

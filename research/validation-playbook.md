@@ -25,34 +25,34 @@ You run all 3 top niches (real estate, dental, restaurants) in parallel. Total t
 
 Use these specific channels. Numbers in parens are approximate group sizes or follower counts; verify before relying on them.
 
-### Bangkok real estate agents
+### real estate agents
 
 | Channel | Search query / action | Expected hit rate |
 |---|---|---|
-| Facebook group "Bangkok Real Estate Agents" (~50k members) | Search posts from last 30 days; DM 10 active posters | 3–4 reply |
-| LINE OA groups | Ask one agent to add you to 2 LINE groups | 5–6 reply |
+| Facebook group "real estate Agents" (~50k members) | Search posts from last 30 days; DM 10 active posters | 3–4 reply |
+| messaging groups | Ask one agent to add you to 2 industry groups | 5–6 reply |
 | Instagram hashtag `#คอนโด` `#bangkokrealestate` | DM 10 active posters | 1–2 reply |
-| LinkedIn search "real estate agent Bangkok" | Send 10 connection requests with note | 2–3 reply |
+| LinkedIn search "real estate agent" | Send 10 connection requests with note | 2–3 reply |
 
 **Outreach message template:**
 
 > Hi [name], I'm testing demand for an AI tool that drafts property listings in Thai and English. 15-min call this week to ask 5 questions about how you currently write listings? No pitch, just research.
 
-### Bangkok dental / medical clinics
+### dental / medical / medical clinics
 
 | Channel | Search query / action | Expected hit rate |
 |---|---|---|
-| Facebook group "Bangkok Dentists" / "Clinic Owners Thailand" | Search posts; DM owners | 2–3 reply |
-| Google Maps "dental clinic Bangkok" (top 100, Sukhumvit/Phrom Phong) | Cold LINE message via LINE OA | 1–2 reply |
-| Walk-in visits (Phrom Phong, Thonglor) | Hand business card, follow up same day via LINE | 3–4 reply |
+| Facebook group "Dental Practice Owners" / "Clinic Owners Thailand" | Search posts; DM owners | 2–3 reply |
+| Google Maps "dental clinic Bangkok" (top 100, Sukhumvit/main commercial districts) | Cold email via messaging | 1–2 reply |
+| Walk-in visits (main commercial districts, Thonglor) | Hand business card, follow up same day via LINE | 3–4 reply |
 | Dental Show Asia exhibitor list | DM 10 small clinics (skip chains) | 1–2 reply |
 
-### Independent Bangkok restaurants
+### Independent independent restaurants
 
 | Channel | Search query / action | Expected hit rate |
 |---|---|---|
-| Facebook group "Bangkok Restaurant Owners" / "F&B Thailand" | DM active posters | 3–4 reply |
-| Wongnai merchant pages (top 200) | Cold LINE message | 1 reply |
+| Facebook group "Restaurant Owners" / "F&B Thailand" | DM active posters | 3–4 reply |
+| Wongnai merchant pages (top 200) | Cold email | 1 reply |
 | Instagram hashtag `#ร้านอาหารกรุงเทพ` | DM 10 active posters | 1 reply |
 | Walk-ins in your own neighborhood | Talk to owner, get LINE | 3–5 reply |
 
@@ -62,7 +62,7 @@ Use these specific channels. Numbers in parens are approximate group sizes or fo
 
 ## Step 2 — 5-question discovery call (15 min, Day 3–7)
 
-Run on LINE voice or in person. Take notes verbatim — pain quotes are gold.
+Run on video call or in person. Take notes verbatim — pain quotes are gold.
 
 ```
 Q1. Walk me through the last [task in hypothesis] you did. How long did it take?
@@ -87,7 +87,7 @@ Q5. Who else do you know with this same problem? (colleague, competitor)
 |---|---|---|
 | "Every day" / "every week" + specific time > 30 min | Real pain | Continue |
 | "Sometimes" / "rarely" | Latent pain, hard to monetize | Demote |
-| Names a number (฿/$) when asked Q4 | Real WTP | Strong continue |
+| Names a number ($) when asked Q4 | Real WTP | Strong continue |
 | "Free is best" or no answer to Q4 | Likely tire-kicker | Demote |
 | 2+ referrals in Q5 | Reachable, warm intros possible | Strong continue |
 | "Don't really talk to anyone" | Hard niche to reach | Demote |
@@ -102,7 +102,7 @@ Use the template in `../templates/fake-door/`. Swap the copy in `content.ts` for
 
 | Variable | Variant A | Variant B |
 |---|---|---|
-| **Headline** | Outcome-led ("Get replies in 5 minutes, not 5 hours") | Feature-led ("AI assistant for Bangkok real estate agents") |
+| **Headline** | Outcome-led ("Get replies in 5 minutes, not 5 hours") | Feature-led ("AI assistant worldwide real estate agents") |
 | **CTA** | "Get early access" | "Join the waitlist" |
 | **Color** | Your brand accent | Niche-native (forest green for real estate) |
 
@@ -110,13 +110,13 @@ Run A and B in parallel using two deploys (or two URLs from the same template).
 
 ### Where to share
 
-For Bangkok real estate agents (top pick):
-- Post in "Bangkok Real Estate Agents" Facebook group with a short story: "Built a tool for agents, looking for 10 to test free."
+worldwide real estate agents:
+- Post in "real estate Agents" Facebook group with a short story: "Built a tool for agents, looking for 10 to test free."
 - DM 20 agents who already replied to your discovery calls.
 - One Reddit post on r/Thailand or r/Bangkok.
 
 For dental clinics:
-- Post in "Bangkok Dentists" Facebook group.
+- Post in "Dental Practice Owners" Facebook group.
 - DM clinic owners from your discovery calls.
 
 ### Quantitative signal thresholds (Day 12–13)

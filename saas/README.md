@@ -1,4 +1,4 @@
-# Loop Zero — SaaS Landing Page
+# Handoff — SaaS Landing Page
 
 The product surface for the AI automation agency. Single-page landing with Lemon Squeezy Checkout and waitlist capture. Lives separately from the agency portfolio so you can iterate on the product without touching marketing copy.
 

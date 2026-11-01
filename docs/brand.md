@@ -1,11 +1,11 @@
 # Brand Name Options
 
-## Option 1: Loop Zero
+## Option 1: Handoff
 
 **Tagline:** Repetitive work, automated out.
 
 **Positioning:**
-Loop Zero finds the loops in your business, the email you send 40 times a week, the report you rebuild every Monday, the invoice you re-enter into three systems. We automate them out. Built for Bangkok and ASEAN small businesses running on talent but bleeding time on admin. No "digital transformation" theater. Just fewer things for your team to do by hand.
+Handoff finds the loops in your business, the email you send 40 times a week, the report you rebuild every Monday, the invoice you re-enter into three systems. We automate them out. Built for worldwide small businesses running on talent but bleeding time on admin. No "digital transformation" theater. Just fewer things for your team to do by hand.
 
 **Why it works:**
 "Loop" is a word every business owner understands without a technical explanation. "Zero" makes the promise concrete and binary: the task either ends or it doesn't. The name works in English, doesn't require translation, and is short enough for a domain, a logo, and a WhatsApp business name.

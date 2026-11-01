@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Loop Zero — AI Automation Agency",
+  title: "Handoff — AI Automation Agency",
   description:
-    "AI automations for Bangkok and ASEAN small businesses. Quick bots, workflow systems, and ongoing support. No enterprise theater.",
+    "AI automations for worldwide small businesses. Quick bots, workflow systems, and ongoing support. No enterprise theater.",
 };
 
 export default function RootLayout({

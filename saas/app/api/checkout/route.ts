@@ -106,7 +106,7 @@ export async function POST(request: Request) {
             product_options: {
               redirect_url: `${siteUrl}/?checkout=success`,
               receipt_button_text: "Go to your account",
-              receipt_thank_you_note: "Welcome to Loop Zero! Check your email for setup instructions.",
+              receipt_thank_you_note: "Welcome to Handoff! Check your email for setup instructions.",
             },
           },
           relationships: {

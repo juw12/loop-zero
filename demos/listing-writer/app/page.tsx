@@ -145,7 +145,7 @@ export default function Home() {
               type="text"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              placeholder="e.g. Sukhumvit 39, Bangkok"
+              placeholder="e.g. 123 Main Street, City"
               disabled={loading}
               className="w-full rounded-lg border border-ink/10 bg-ink/[0.02] px-4 py-3 placeholder:text-ink/30 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
             />
@@ -162,7 +162,7 @@ export default function Home() {
               id="features"
               value={features}
               onChange={(e) => setFeatures(e.target.value)}
-              placeholder="e.g. Fully renovated, high floor, city view, walk to BTS Phrom Phong, pet-friendly building, pool and gym"
+              placeholder="e.g. Fully renovated, high floor, city view, walk to BTS main commercial districts, pet-friendly building, pool and gym"
               rows={3}
               disabled={loading}
               className="w-full rounded-lg border border-ink/10 bg-ink/[0.02] px-4 py-3 placeholder:text-ink/30 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors resize-none"
