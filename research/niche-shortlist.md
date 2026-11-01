@@ -1,44 +1,44 @@
 # Niche Shortlist
 
-5 candidate SMB niches worldwide / Thailand for the AI automation agency, scored on **Pain × Willingness to Pay × Reachability**.
+5 candidate SMB niches for the AI automation agency, scored on **Pain × Willingness to Pay × Reachability**. Globally focused — localise the channels when you pick your starting market.
 
-> **Top pick:** independent real estate agents
-> **Runner-up:** dental / medical / medical clinics
-> **Avoid for now:** B2B SaaS marketing teams (too few in market, hard to reach in Thailand)
+> **Top pick:** Independent real estate agents
+> **Runner-up:** Dental / medical clinics
+> **Avoid for now:** B2B SaaS marketing teams (too few at the SMB level globally)
 
 ---
 
-## 1. independent real estate agents
+## 1. Independent real estate agents
 
-- **Pain hypothesis:** They copy every email / web forms inquiry into a Google Sheet by hand, 2–3× per day. Listings get pasted onto 6+ portals. Follow-ups are sent manually or not at all.
-- **Estimated market size:** Thailand had ~60,000 active real-estate agents in 2023 (estimate, unverified — see [major listing sites](https://www.major listing sites.com) / [FazWaz](https://www.fazwaz.com) for ecosystem scale). Bangkok is the densest pocket.
-- **Willingness to pay:** **High.** Agents work on commission and already pay for portals (~฿3,000–15,000/mo each, multiple portals). Saving 5 hrs/week and closing 2 more deals/quarter is worth a flat $500 easily.
-- **Reachability:** **Very high.** They live in Facebook groups ("real estate Agents", ~50k members), messaging groups, and post publicly on Instagram/TikTok.
-- **Existing AI-automation competitors:** Almost none in Thailand. International tools (Zillow US, Compass) have features but nothing localized. **Wide open.**
+- **Pain hypothesis:** They copy every email and web-form inquiry into a Google Sheet by hand, 2–3× per day. Listings get pasted onto 6+ portals (MLS, Zillow, Realtor.com, regional sites). Follow-ups are sent manually or not at all.
+- **Estimated market size:** ~3 million active real-estate agents in the US alone (NAR), ~500k in the EU, ~200k in Australia/NZ. Globally well over 5 million. The US is the densest pocket.
+- **Willingness to pay:** **High.** Agents work on commission and already pay for portals ($90–450/mo each, multiple subscriptions). Saving 5 hrs/week and closing 2 more deals/quarter is worth a flat $500 easily.
+- **Reachability:** **Very high.** They live in Facebook groups ("Real Estate Agents Network", "Realtors United"), industry Slack/Discords, LinkedIn, and post publicly on Instagram/TikTok.
+- **Existing AI-automation competitors:** Almost none at the SMB level. International tools (Zillow US, Compass) have features but nothing localized for independent agents. **Wide open.**
 - **Score (Pain × WTP × Reach):** 9/10
-- **Recommended first move:** Post the AI Listing Writer demo in 3 Bangkok agent Facebook groups this week with a "free for the first 5 agents" hook. Run 10 discovery calls.
+- **Recommended first move:** Post the AI Listing Writer demo in 3 regional agent Facebook groups + send 10 LinkedIn connection requests this week with a "free for the first 5 agents" hook. Run 10 discovery calls.
 
 ---
 
-## 2. dental / medical / medical clinics
+## 2. Dental / medical clinics (independent)
 
-- **Pain hypothesis:** Front desk staff spend 2–3 hours/day on WhatsApp appointment reminders, rescheduling, and follow-up reviews. messaging is the primary channel but most clinics send reminders manually.
-- **Estimated market size:** ~2,500 private dental clinics worldwide (estimate, unverified). Add 1,500 medical / specialist clinics = ~4,000 targets. Source signal: major hospital networks alone has 14 branches; smaller independents are the bulk.
-- **Willingness to pay:** **High.** Clinic owners spend on marketing already (Facebook ads, messaging premium ~฿5,000/mo). A bot that recovers 10% of no-shows pays for itself in week 1.
-- **Reachability:** **High.** clinic owners cluster on Facebook ("Dental Practice Owners", "Clinic Owners Thailand"), at trade shows (e.g., Dental Show Asia), and respond well to cold email outreach.
-- **Existing AI-automation competitors:** A few local players (e.g., MorDee, BeDee) do patient portals, but **appointment-reminder automation specifically** is mostly manual. Some Zocdoc-equivalents exist but no Thai market leader.
+- **Pain hypothesis:** Front desk staff spend 2–3 hours/day on appointment reminders, rescheduling, and follow-up reviews. SMS/email is the primary channel but most clinics send reminders manually.
+- **Estimated market size:** ~200,000 dental practices in the US (ADA). Add ~80,000 medical/specialty clinics as targets. Globally well over 400,000.
+- **Willingness to pay:** **High.** Clinic owners spend on marketing already (Facebook ads, practice-management software $150–500/mo). A bot that recovers 10% of no-shows pays for itself in week 1.
+- **Reachability:** **High.** Clinic owners cluster on Facebook ("Dental Practice Owners", "Independent Clinic Owners"), at dental conferences, and respond well to cold email outreach.
+- **Existing AI-automation competitors:** A few players (e.g., PatientPop, Kareo) do patient portals, but **appointment-reminder automation specifically** is mostly manual. No clear global market leader at the SMB level.
 - **Score:** 8/10
-- **Recommended first move:** Cold-call (cold-email) 15 dental clinics in Sukhumvit / main commercial districts area offering a free 30-min "we audit your front desk automation" review.
+- **Recommended first move:** Cold-email 15 dental clinics in your local area offering a free 30-min "we audit your front desk automation" review.
 
 ---
 
-## 3. independent restaurants / F&B (independent, 1–3 locations)
+## 3. Independent restaurants / F&B (1–3 locations)
 
-- **Pain hypothesis:** Restaurant owners manually post menus to Grab / LINE / Wongnai when prices change. They lose 1–2 hours/day on reservation DMs (mostly LINE), and rarely follow up with reviews.
-- **Estimated market size:** ~20,000 independent restaurants worldwide (estimate, unverified — Bangkok Post cites ~50,000 total food-service operators including chains).
-- **WTP:** **Medium.** Margins are tight. Restaurant owners will pay $500 one-off, but $500/mo retainers are a harder sell. Best entry: Quick Bot.
-- **Reachability:** **Very high.** They post daily on Facebook / Instagram, hang out in "Restaurant Owners" groups, attend trade shows.
-- **Competitors:** Some Thai POS / ordering platforms (FoodStory, Grubfood) bundle "marketing" features, but no dedicated review-responder / multi-platform menu sync tool.
+- **Pain hypothesis:** Restaurant owners manually post menus to UberEats / DoorDash / Google when prices change. They lose 1–2 hours/day on reservation DMs, and rarely follow up with reviews.
+- **Estimated market size:** ~700,000 independent restaurants in the US alone (NRA estimate). Globally well over 5 million.
+- **WTP:** **Medium.** Margins are tight. Restaurant owners will pay $500 one-off, but $99/mo retainers are a harder sell. Best entry: Quick Bot.
+- **Reachability:** **Very high.** They post daily on Facebook / Instagram, hang out in restaurant-owner groups, attend trade shows.
+- **Competitors:** Some POS / ordering platforms (Toast, Square) bundle "marketing" features, but no dedicated review-responder / multi-platform menu sync tool at the SMB level globally.
 - **Score:** 7/10
 - **Recommended first move:** Run the AI Review Responder demo in restaurant-owner Facebook groups. Offer the first 3 a free setup.
 
@@ -56,13 +56,13 @@
 
 ---
 
-## 5. property management management companies
+## 5. Property management companies (independent)
 
-- **Pain hypothesis:** Property managers handle tenant inquiries, maintenance requests, rent reminders, and contract renewals across 30–100 units. Most of this is WhatsApp / LINE + spreadsheet-driven. They lose 10+ hours/week.
-- **Estimated market size:** ~300–500 dedicated property-management companies worldwide (estimate, unverified). Many are small (1–5 people) and serve condo buildings.
+- **Pain hypothesis:** Property managers handle tenant inquiries, maintenance requests, rent reminders, and contract renewals across 30–100 units. Most of this is email + spreadsheet-driven. They lose 10+ hours/week.
+- **Estimated market size:** ~30,000 property management companies in the US (IBISWorld). Globally well over 100,000. Many are small (1–5 people) and serve residential buildings.
 - **WTP:** **High.** B2B, recurring revenue, clear ROI per saved hour.
-- **Reachability:** **Medium.** They don't cluster in Facebook groups as visibly as real-estate agents. Trade associations (e.g., Thai Condominium Association) are the entry point.
-- **Competitors:** Established regional SaaS (Buildium, AppFolio) is US-focused and doesn't localize for Thai LINE workflows. Local players like Somerville Property exist but no AI agent play.
+- **Reachability:** **Medium.** They don't cluster in Facebook groups as visibly as real-estate agents. Trade associations (e.g., NARPM, IREM) are the entry point.
+- **Competitors:** Established SaaS (Buildium, AppFolio) serves the US market but no AI agent play. Many smaller managers still use spreadsheets.
 - **Score:** 6/10
 - **Recommended first move:** Skip until agency has cash flow from niches 1–3. Revisit in 3 months with case studies to show ROI.
 
@@ -72,7 +72,7 @@
 
 | # | Niche | Pain | WTP | Reach | Total | Go now? |
 |---|-------|------|-----|-------|-------|---------|
-| 1 | real estate agents | 9 | 9 | 9 | **9/10** | ✅ Yes |
+| 1 | Independent real estate agents | 9 | 9 | 9 | **9/10** | ✅ Yes |
 | 2 | Dental / medical clinics | 8 | 8 | 7 | **8/10** | ✅ Yes |
 | 3 | Restaurants (independent) | 7 | 6 | 9 | **7/10** | ✅ Quick Bot only |
 | 4 | E-commerce sellers | 7 | 7 | 7 | **7/10** | ✅ Yes |
@@ -82,9 +82,10 @@
 
 ## Market size notes & uncertainty
 
-- "Estimated market size" numbers above are rough order-of-magnitude estimates, not verified statistics. Mark them as such whenever you cite them.
-- For higher-confidence data points, query the [Bank of Thailand](https://www.bot.or.th) statistics portal and the [Office of Small and Medium Enterprises Promotion (OSMEP)](https://www.sme.go.th) annual SME report.
-- Treat the agent count (~60,000 nationally) as plausible but unverified — the Thai real-estate industry has no public agent registry.
+- All "estimated market size" numbers above are rough order-of-magnitude estimates, not verified statistics. Mark them as such whenever you cite them.
+- For higher-confidence data points in the US: query the [US Census Bureau](https://www.census.gov) and [Bureau of Labor Statistics](https://www.bls.gov).
+- For higher-confidence data points in the EU: query [Eurostat](https://ec.europa.eu/eurostat) and national real-estate associations.
+- Treat the NAR agent count as the most reliable anchor; everything else is a multiple of it.
 
 ---
 

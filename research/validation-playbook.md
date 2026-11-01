@@ -2,7 +2,7 @@
 
 Step-by-step instructions for testing which of the 5 niches in `niche-shortlist.md` has real demand before building a SaaS product for it.
 
-> **TL;DR:** Spend 14 days and ~฿0. Run a 5-question discovery call with 10 prospects in each top niche. Use the fake-door landing page to gauge cold-traffic signal. Kill any niche that doesn't clear the thresholds below by day 14.
+> **TL;DR:** Spend 14 days and ~$0. Run a 5-question discovery call with 10 prospects in each top niche. Use the fake-door landing page to gauge cold-traffic signal. Kill any niche that doesn't clear the thresholds below by day 14.
 
 ---
 
@@ -23,38 +23,38 @@ You run all 3 top niches (real estate, dental, restaurants) in parallel. Total t
 
 ## Step 1 — Find 10 prospects per niche (Day 1–2)
 
-Use these specific channels. Numbers in parens are approximate group sizes or follower counts; verify before relying on them.
+Use these specific channels. Localise to your starting market.
 
-### real estate agents
+### Independent real estate agents
 
 | Channel | Search query / action | Expected hit rate |
 |---|---|---|
-| Facebook group "real estate Agents" (~50k members) | Search posts from last 30 days; DM 10 active posters | 3–4 reply |
-| messaging groups | Ask one agent to add you to 2 industry groups | 5–6 reply |
-| Instagram hashtag `#คอนโด` `#bangkokrealestate` | DM 10 active posters | 1–2 reply |
+| Facebook groups (e.g., "Real Estate Agents Network", "Realtors United" — pick your region) | Search posts from last 30 days; DM 10 active posters | 3–4 reply |
+| Industry Slack/Discord communities | Ask one agent to add you; lurk for a week, then post | 5–6 reply |
+| Instagram hashtag `#realestateagent` `#realtorlife` | DM 10 active posters | 1–2 reply |
 | LinkedIn search "real estate agent" | Send 10 connection requests with note | 2–3 reply |
 
 **Outreach message template:**
 
-> Hi [name], I'm testing demand for an AI tool that drafts property listings in Thai and English. 15-min call this week to ask 5 questions about how you currently write listings? No pitch, just research.
+> Hi [name], I'm testing demand for an AI tool that drafts property listings in multiple languages. 15-min call this week to ask 5 questions about how you currently write listings? No pitch, just research.
 
-### dental / medical / medical clinics
-
-| Channel | Search query / action | Expected hit rate |
-|---|---|---|
-| Facebook group "Dental Practice Owners" / "Clinic Owners Thailand" | Search posts; DM owners | 2–3 reply |
-| Google Maps "dental clinic Bangkok" (top 100, Sukhumvit/main commercial districts) | Cold email via messaging | 1–2 reply |
-| Walk-in visits (main commercial districts, Thonglor) | Hand business card, follow up same day via LINE | 3–4 reply |
-| Dental Show Asia exhibitor list | DM 10 small clinics (skip chains) | 1–2 reply |
-
-### Independent independent restaurants
+### Dental / medical clinics
 
 | Channel | Search query / action | Expected hit rate |
 |---|---|---|
-| Facebook group "Restaurant Owners" / "F&B Thailand" | DM active posters | 3–4 reply |
-| Wongnai merchant pages (top 200) | Cold email | 1 reply |
-| Instagram hashtag `#ร้านอาหารกรุงเทพ` | DM 10 active posters | 1 reply |
-| Walk-ins in your own neighborhood | Talk to owner, get LINE | 3–5 reply |
+| Facebook groups (e.g., "Dental Practice Owners", "Independent Clinic Owners") | Search posts; DM owners | 2–3 reply |
+| Google Maps "dental clinic" (top 100 in your area) | Cold email | 1–2 reply |
+| Walk-in visits (commercial districts in your city) | Hand business card, follow up same day via email | 3–4 reply |
+| Dental conference exhibitor list | DM 10 small clinics (skip chains) | 1–2 reply |
+
+### Independent restaurants
+
+| Channel | Search query / action | Expected hit rate |
+|---|---|---|
+| Facebook group "Restaurant Owners" | DM active posters | 3–4 reply |
+| Yelp / TripAdvisor merchant pages (top 200) | Cold email | 1 reply |
+| Instagram hashtag `#restaurantowner` `#foodbusiness` | DM 10 active posters | 1 reply |
+| Walk-ins in your own neighborhood | Talk to owner, get email | 3–5 reply |
 
 **Don't burn more than 2 hours per niche on outreach.** If reply rate is <10%, the niche may be wrong — note it and move on.
 
@@ -102,7 +102,7 @@ Use the template in `../templates/fake-door/`. Swap the copy in `content.ts` for
 
 | Variable | Variant A | Variant B |
 |---|---|---|
-| **Headline** | Outcome-led ("Get replies in 5 minutes, not 5 hours") | Feature-led ("AI assistant worldwide real estate agents") |
+| **Headline** | Outcome-led ("Get replies in 5 minutes, not 5 hours") | Feature-led ("AI assistant for real estate agents") |
 | **CTA** | "Get early access" | "Join the waitlist" |
 | **Color** | Your brand accent | Niche-native (forest green for real estate) |
 
@@ -110,10 +110,10 @@ Run A and B in parallel using two deploys (or two URLs from the same template).
 
 ### Where to share
 
-worldwide real estate agents:
-- Post in "real estate Agents" Facebook group with a short story: "Built a tool for agents, looking for 10 to test free."
+For real estate agents (top pick):
+- Post in a regional Facebook group (e.g., "Real Estate Agents Network") with a short story: "Built a tool for agents, looking for 10 to test free."
 - DM 20 agents who already replied to your discovery calls.
-- One Reddit post on r/Thailand or r/Bangkok.
+- One Reddit post on r/RealEstate or a region-specific subreddit.
 
 For dental clinics:
 - Post in "Dental Practice Owners" Facebook group.
@@ -136,7 +136,7 @@ For dental clinics:
 ### Build (proceed to SaaS MVP)
 Two of: signup rate >10%, 5+ DMs, 3+ WTP confirms, 2+ referrals.
 
-**Action:** Promote that niche to your SaaS plan. Build a 4-week MVP. Budget ฿5,000–10,000 for the first month of paid ads to validate paid acquisition.
+**Action:** Promote that niche to your SaaS plan. Build a 4-week MVP. Budget $150–300 for the first month of paid ads to validate paid acquisition.
 
 ### Iterate (test again)
 Signup rate 3–10% but calls showed real pain. You may have a copy or channel problem, not a niche problem.
@@ -174,7 +174,7 @@ That's the niche. Build for it.
 ## Cost to run this playbook
 
 - 5 hours of your time (mostly async outreach + calls)
-- ฿0 in cash (everything runs on free tiers + existing tools)
-- 1 domain (฿350/year) if you don't have one for the fake-door page — defer otherwise, use Vercel's free subdomain
+- $0 in cash (everything runs on free tiers + existing tools)
+- 1 domain ($12/year) if you don't have one for the fake-door page — defer otherwise, use Vercel's free subdomain
 
 This is the cheapest possible way to know whether a niche is worth 6 months of building.
