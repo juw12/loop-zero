@@ -1,0 +1,70 @@
+name: Deploy Loop Zero
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify each app builds
+        run: |
+          set -e
+          for app in portfolio saas demos/review-responder demos/listing-writer templates/fake-door; do
+            echo "==== $app ===="
+            cd "$GITHUB_WORKSPACE/$app"
+            npm ci --no-audit --no-fund
+            npm run build
+            cd "$GITHUB_WORKSPACE"
+          done
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      # One Vercel project per app. The first deploy will create each project;
+      # subsequent deploys update it.
+      - name: Deploy portfolio
+        run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
+        working-directory: ./portfolio
+
+      - name: Deploy saas
+        run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
+        working-directory: ./saas
+        env:
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+          STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
+          STRIPE_PRICE_PROFESSIONAL_MONTHLY: ${{ secrets.STRIPE_PRICE_PROFESSIONAL_MONTHLY }}
+          STRIPE_PRICE_PROFESSIONAL_ANNUAL: ${{ secrets.STRIPE_PRICE_PROFESSIONAL_ANNUAL }}
+          STRIPE_PRICE_TEAM_MONTHLY: ${{ secrets.STRIPE_PRICE_TEAM_MONTHLY }}
+          STRIPE_PRICE_TEAM_ANNUAL: ${{ secrets.STRIPE_PRICE_TEAM_ANNUAL }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+
+      - name: Deploy review-responder
+        run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
+        working-directory: ./demos/review-responder
+        env:
+          LLM_PROVIDER: openai
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+
+      - name: Deploy listing-writer
+        run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
+        working-directory: ./demos/listing-writer
+        env:
+          LLM_PROVIDER: openai
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+
+      - name: Deploy fake-door
+        run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
+        working-directory: ./templates/fake-door

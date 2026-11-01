@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "echo 'Monorepo — each app has its own build command'",
+  "installCommand": "echo 'Subdirs handle their own installs'",
+  "framework": null
+}
