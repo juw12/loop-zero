@@ -12,7 +12,7 @@
 
   What it does:
     - Verifies prerequisites
-    - Pushes code to GitHub (uses GITHUB_TOKEN env var, non-interactive)
+    - Pushes code to GitHub (authenticates with GITHUB_TOKEN; the token is never written into the remote URL or .git/config)
     - Logs into Vercel via token (non-interactive)
     - Deploys all 5 apps as separate Vercel projects
     - Prints deployment URLs at the end
@@ -88,13 +88,18 @@ if (-not $SkipGit) {
   Write-Host ""
   Write-Host "=== Pushing to GitHub ==="
   $user = if ($GitHubUser) { $GitHubUser } else { $env:GH_USER }
-  $repoUrl = "https://${env:GITHUB_TOKEN}@github.com/$user/$RepoName.git"
+  # Keep the remote URL clean. Never embed the token here: it would be written
+  # to .git/config in plaintext. The push below authenticates per-invocation.
+  $repoUrl = "https://github.com/$user/$RepoName.git"
 
   # Check if remote exists
   $hasRemote = (& git remote get-url origin 2>$null)
   if (-not $hasRemote) {
     Write-Host "  Adding remote origin..."
     & git remote add origin $repoUrl
+  } elseif ($hasRemote -match '://[^/@]+@') {
+    Write-Host "  Remote origin had an embedded credential; resetting to a clean URL..." -ForegroundColor Yellow
+    & git remote set-url origin $repoUrl
   } else {
     Write-Host "  Remote origin already set: $hasRemote"
   }
@@ -121,7 +126,10 @@ if (-not $SkipGit) {
   }
 
   Write-Host "  Pushing main branch..."
-  & git push -u origin main 2>&1 | Select-Object -Last 5
+  # Authenticate just this push with the token, passed as a one-off header so it
+  # is never stored in .git/config.
+  $basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("x-access-token:$($env:GITHUB_TOKEN)"))
+  & git -c "http.extraheader=Authorization: Basic $basic" push -u origin main 2>&1 | Select-Object -Last 5
   Write-Host "  Pushed." -ForegroundColor Green
 }
 
