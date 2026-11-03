@@ -1,4 +1,44 @@
-# Agency Starter Kit — Week 1
+<!-- HERO:START -->
+<p align="center">
+  <a href="https://github.com/juw12/loop-zero"><img src="docs/media/banner.jpg" alt="Handoff: AI automation for small businesses." width="100%"></a>
+</p>
+
+<p align="center">
+  <b>AI automation for small businesses.</b><br>
+  An agency starter kit plus a SaaS product: five Next.js apps, outreach copy and a 14-day validation playbook.
+</p>
+
+<p align="center">
+  <a href="#highlights">Highlights</a> ·
+  <a href="https://github.com/juw12">More by juw12</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/juw12/loop-zero"><img src="https://img.shields.io/github/last-commit/juw12/loop-zero?label=updated&color=0d9488" alt="Last updated"></a>
+  <img src="https://img.shields.io/badge/Next.js-24292f" alt="Next.js">
+  <img src="https://img.shields.io/badge/Agency_kit-24292f" alt="Agency kit">
+</p>
+
+<a id="highlights"></a>
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <b>Five apps</b><br>
+      Next.js apps ready to show and sell.
+    </td>
+    <td width="33%" valign="top">
+      <b>Outreach copy</b><br>
+      Cold-outreach templates for small businesses.
+    </td>
+    <td width="33%" valign="top">
+      <b>14-day playbook</b><br>
+      A step-by-step plan to validate the agency.
+    </td>
+  </tr>
+</table>
+<!-- HERO:END -->
+
+## About
 
 Everything you need to launch the AI automation agency this week. Built for worldwide SMBs.
 
