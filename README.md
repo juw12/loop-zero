@@ -232,4 +232,4 @@ If you have all that by Day 14, the agency is real.
 
 ## License
 
-This kit is yours. Use it, modify it, ship it. No attribution required.
+Released under the [MIT License](LICENSE) © 2026 Juwen Lie. Contributions are welcome under the same license; see the [contributing guide](https://github.com/juw12/.github/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/juw12/.github/blob/main/CODE_OF_CONDUCT.md).
