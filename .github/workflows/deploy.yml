@@ -27,19 +27,35 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     steps:
+      - name: Skip when Vercel is not configured
+        id: vercel
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "VERCEL_TOKEN secret is not set; build was verified, skipping deploy."
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.vercel.outputs.enabled == 'true'
 
       - name: Install Vercel CLI
+        if: steps.vercel.outputs.enabled == 'true'
         run: npm install -g vercel@latest
 
       # One Vercel project per app. The first deploy will create each project;
       # subsequent deploys update it.
       - name: Deploy portfolio
+        if: steps.vercel.outputs.enabled == 'true'
         run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
         working-directory: ./portfolio
 
       - name: Deploy saas
+        if: steps.vercel.outputs.enabled == 'true'
         run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
         working-directory: ./saas
         env:
@@ -52,6 +68,7 @@ jobs:
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
 
       - name: Deploy review-responder
+        if: steps.vercel.outputs.enabled == 'true'
         run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
         working-directory: ./demos/review-responder
         env:
@@ -59,6 +76,7 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
 
       - name: Deploy listing-writer
+        if: steps.vercel.outputs.enabled == 'true'
         run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
         working-directory: ./demos/listing-writer
         env:
@@ -66,5 +84,6 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
 
       - name: Deploy fake-door
+        if: steps.vercel.outputs.enabled == 'true'
         run: vercel deploy --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_SCOPE }}
         working-directory: ./templates/fake-door
